@@ -1,7 +1,8 @@
-from lib.apple_traceviewer import TraceViewer                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        aaqfrom lib.search import AppleWebsite
-from lib.apple_gotoiphone import GotoIphone
+from lib.search import AppleWebsite
+from lib.apple_gotoiphone import GotoIphone 
 from lib.apple_addfeatures import AddFeatures
 from lib.apple_addtothebag import AddtoBag
+from lib.apple_traceviewer import TraceViewer
 from playwright.sync_api import Page
 
 
