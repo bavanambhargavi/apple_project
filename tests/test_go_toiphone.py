@@ -1,16 +1,13 @@
-from lib.search import GotoAppleWebsite
-from lib.apple_gotoiphone import AppleIphone
+from lib.search import AppleWebsite
+from lib.apple_gotoiphone import GotoIphone
+from playwright.sync_api import Page
 import time
 
 
-def test_gotoiphone(page):
-    apple_web = GotoAppleWebsite(page)
+def test_gotoiphone(page: Page):
+    apple_web = AppleWebsite(page)
     apple_web.navigate()
-    apple_iphone = AppleIphone(page)
+    apple_web.clickonwebsite()
+    apple_iphone = GotoIphone(page)
     apple_iphone.clickoniphone()
-    time.sleep(3)
-
-
-
-
-    
+    time.sleep(4)

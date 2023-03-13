@@ -1,22 +1,18 @@
 from playwright.sync_api import Page
 
 
-class GotoIphone():
-    iphone_url = "//a[@aria-label='iPhone']//span[@class='globalnav-link-text-container']"
-    iphone_13 = "//span[@class='chapternav-label'][normalize-space()='iPhone 13']"
+class CheckIphone:
+
+    Iphone_loc = "//a[@aria-label='iPhone']//span[@class='globalnav-link-text-container']"
+    Iphone13 = "//span[@class='chapternav-label'][normalize-space()='iPhone 13']"
 
 
-class AppleIphone():
+class GotoIphone:
 
-    def __init__(self, page):
+    def __init__(self, page: Page):
         self.page = page
 
     def clickoniphone(self):
-        self.page.locator(GotoIphone.iphone_url).click()
-        self.page.locator(GotoIphone.iphone_13).click()
-
-        
-    
-
-
-
+        self.page.wait_for_timeout(3000)
+        self.page.locator(CheckIphone.Iphone_loc).click()
+        self.page.locator(CheckIphone.Iphone13).click()

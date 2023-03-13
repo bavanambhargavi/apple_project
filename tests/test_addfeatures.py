@@ -1,14 +1,13 @@
-from lib.search import GotoAppleWebsite
-from lib.apple_gotoiphone import AppleIphone
+from lib.search import AppleWebsite
+from lib.apple_gotoiphone import GotoIphone
 from lib.apple_addfeatures import AddFeatures
+from playwright.sync_api import Page
 
 
-def test_addfeatures(page):
-    apple = GotoAppleWebsite(page)
+def test_addfeatures(page: Page):
+    apple = AppleWebsite(page)
     apple.navigate()
-    iphone = AppleIphone(page)
+    iphone = GotoIphone(page)
     iphone.clickoniphone()
-    features = AddFeatures(page)
-    features.clickonfeatures()
-
-
+    features = AddFeatures()
+    features.clickonfeatures(page)

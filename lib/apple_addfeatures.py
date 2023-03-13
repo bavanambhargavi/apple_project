@@ -1,18 +1,21 @@
 from playwright.sync_api import Page
 
 
-class IphoneFeatures():
-    label = "//label[@id='9540c5c0-be73-11ed-b20e-a940064a7bc1_label']//span[@class='column form-selector-left-col rf-bfe-selector-left-col']"
-    # colour = "//label[@for='3b517eb3-be6e-11ed-86a7-233a13333b4f']//img[@class='colornav-swatch']"
-    # storage = "(//span[@class='column form-selector-left-col rf-bfe-selector-left-col'])[3]"
+class IphoneFeatures:
+
+    label = '[id="feccf080-c158-11ed-bfb7-0f2f96190cd9"]'
+    label_1 = "//label[@for='fecdb3d1-c158-11ed-bfb7-0f2f96190cd9']//img[@class='colornav-swatch']"
+    label_2 = "label[id='fece01f0-c158-11ed-bfb7-0f2f96190cd9_label'] span[class='column form-selector-left-col rf-bfe-selector-left-col']"
+    label_3 = "//label[@id='noTradeIn_label']"
 
 
-class AddFeatures():
+class AddFeatures:
 
-    def __init__(self, page):
+    def __init__(self, page: Page):
         self.page = page
 
     def clickonfeatures(self):
         self.page.locator(IphoneFeatures.label).click()
-        # self.page.locator(IphoneFeatures.colour).click()
-        # self.page.locator(IphoneFeatures.storage).click()
+        self.page.locator(IphoneFeatures.label_1).click()
+        self.page.locator(IphoneFeatures.label_2).click()
+        self.page.locator(IphoneFeatures.label_3).click()

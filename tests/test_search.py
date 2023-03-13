@@ -1,11 +1,13 @@
 import time
-from lib.search import GotoAppleWebsite
+from lib.search import AppleWebsite
+from playwright.sync_api import Page
 
 
-# class AppleWebsite():
-
-def test_searchapple(page):
-    apple = GotoAppleWebsite(page)
-    time.sleep(3)
+def test_searchapple(page: Page):
+    apple = AppleWebsite(page)
+    # time.sleep(3)
     apple.navigate()
-    time.sleep(4)
+    apple.clickonwebsite()
+    time.sleep(3)
+
+
