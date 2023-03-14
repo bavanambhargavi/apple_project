@@ -8,6 +8,7 @@ from playwright.sync_api import Page
 def test_addtobag(page: Page):
     apple = AppleWebsite(page)
     apple.navigate()
+    apple.clickonwebsite()
     iphone = GotoIphone(page)
     iphone.clickoniphone()
     features = AddFeatures(page)
