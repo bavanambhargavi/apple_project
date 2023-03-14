@@ -9,7 +9,7 @@ class TraceViewer:
     def traceviewer(self, page):
 
         with sync_playwright() as p:
-            browser = p.chromium.launch(headless=False)
+            browser = p.chromium.launch(headless=True)
             context = browser.new_context()
             context.tracing.start(
                 screenshots=True, snapshots=True, sources=True)
