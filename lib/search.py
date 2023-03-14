@@ -12,7 +12,7 @@ class AppleWebsite:
         self.page = page
 
     def navigate(self):
-        self.page.goto("https://www.google.com/")
+        self.page.goto("https://www.google.com")
 
     def clickonwebsite(self):
         self.page.locator(SearchPage.search_loc).click()

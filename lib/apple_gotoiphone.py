@@ -13,6 +13,6 @@ class GotoIphone:
         self.page = page
 
     def clickoniphone(self):
-        self.page.wait_for_timeout(3000)
+        self.page.wait_for_timeout(5000)
         self.page.locator(CheckIphone.Iphone_loc).click()
         self.page.locator(CheckIphone.Iphone13).click()

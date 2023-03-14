@@ -1,20 +1,27 @@
+from playwright.sync_api import sync_playwright, Page
 from lib.search import AppleWebsite
-from lib.apple_gotoiphone import GotoIphone 
+from lib.apple_gotoiphone import GotoIphone
 from lib.apple_addfeatures import AddFeatures
 from lib.apple_addtothebag import AddtoBag
-from lib.apple_traceviewer import TraceViewer
-from playwright.sync_api import Page
 
 
 def test_traceviewer(page: Page):
-    apple = AppleWebsite(page)
-    apple.navigate()
-    iphone = GotoIphone(page)
-    iphone.clickoniphone()
-    features = AddFeatures(page)
-    features.clickonfeatures()
-    bag = AddtoBag(page)
-    bag.clickaddtobag()
-    viewer = TraceViewer(page)
-    viewer.traceviewer()
-
+    with sync_playwright() as p:
+        # browser = p.chromium.launch(headless=False)
+        browser = p.chromium.launch()
+        context = browser.new_context()
+        context.tracing.start(
+            screenshots=True, snapshots=True, sources=True)
+        page = context.new_page()
+        # page.goto("https://www.google.com")
+        search = AppleWebsite(page)
+        search.navigate()
+        search.clickonwebsite()
+        iphone = GotoIphone(page)
+        iphone.clickoniphone()
+        features = AddFeatures(page)
+        features.clickonfeatures()
+        cart = AddtoBag()
+        cart.clickaddtobag()
+        context.tracing.stop(path="trace.zip")
+        context.close()
